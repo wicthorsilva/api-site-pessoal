@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { initDatabase} = require('./config/db');
-const experienciasRoutes = require ('./routes/experienciasRoute');
+const experienciasRoute = require ('./routes/experienciasRoute');
 
 const app = express();
 
@@ -11,7 +11,9 @@ app.get('/', (req, res ) => {
     res.send('Seja bem vindo a API do Meu Site');
 });
 
-app.use('/api/experiencias', experienciasRoutes)
+app.use(express.json());
+
+app.use('/api/experiencias', experienciasRoute);
 
 initDatabase();
 

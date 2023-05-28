@@ -6,4 +6,12 @@ const router = express.Router();
 //get All
 router.get('/', experienciasController.getAllExperiencias);
 
+router.get('/:id', experienciasController.getExperienciaById);
+
+router.post('/', experienciasController.createExperiencia);
+
+router.put('/:id', experienciasController.updateExperiencia);
+
+router.delete('/:id', experienciasController.deleteExperiencia);
+
 module.exports = router;
