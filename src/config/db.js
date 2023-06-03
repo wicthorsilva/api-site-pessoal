@@ -39,6 +39,14 @@ const initDatabase = async () => {
        );
     `);
 
+    await pool.query(`
+       CREATE TABLE IF NOT EXISTS usuarios (
+        id INT PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+       );
+    `)
+
         console.log('Banco de dados inicializado!')
     
 }
