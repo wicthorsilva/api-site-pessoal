@@ -21,7 +21,7 @@ exports.createProjeto = async (projeto) => {
 
 exports.updateProjeto = async (id, projeto) => {
     const result = await pool.query(`
-    UPDATE portfolio SET titulo = $1, link =$2, imagem = $3 WHERE id = $4 RETURNING *
+    UPDATE portfolio SET titulo = $1, link = $2, imagem = $3 WHERE id = $4 RETURNING *
     `, [projeto.titulo, projeto.link, projeto.imagem, id]);
     return result.rows[0];
 }

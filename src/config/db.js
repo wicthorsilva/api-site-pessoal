@@ -19,6 +19,26 @@ const initDatabase = async () => {
             ano_fim INT 
         )`
     );
+
+    await pool.query(`
+       CREATE TABLE IF NOT EXISTS portfolio (
+        id SERIAL PRIMARY KEY,
+        titulo VARCHAR(255) NOT NULL,
+        link VARCHAR (255) NOT NULL,
+        imagem VARCHAR(255) NOT NULL
+       );
+    `);
+
+    await pool.query(`
+       CREATE TABLE IF NOT EXISTS informacoes (
+        id INT PRIMARY KEY,
+        foto VARCHAR(255) NOT NULL,
+        nome VARCHAR (255) NOT NULL,
+        cargo VARCHAR(255) NOT NULL,
+        resumo TEXT NOT NULL
+       );
+    `);
+
         console.log('Banco de dados inicializado!')
     
 }
