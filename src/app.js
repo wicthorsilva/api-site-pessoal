@@ -1,8 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const { initDatabase} = require('./config/db');
+const cors = require('cors');
+
 const experienciasRoute = require ('./routes/experienciasRoute');
-const portfolioRoute = require('./routes/portfolioRoutes');
+const projectsRoute = require('./routes/projectsRoutes');
 const informacoesRoute = require('./routes/informacoesRoute')
 const authRoute = require ('./routes/authRoute');
 
@@ -14,10 +16,12 @@ app.get('/', (req, res ) => {
     res.send('Seja bem vindo a API do Meu Site');
 });
 
+app.use(cors());
+
 app.use(express.json());
 
 app.use('/api/experiencias', experienciasRoute);
-app.use('/api/portfolio', portfolioRoute);
+app.use('/api/projects', projectsRoute);
 app.use('/api/informacoes', informacoesRoute);
 app.use('/api/auth', authRoute);
 

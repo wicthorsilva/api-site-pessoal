@@ -21,11 +21,11 @@ const initDatabase = async () => {
     );
 
     await pool.query(`
-       CREATE TABLE IF NOT EXISTS portfolio (
+       CREATE TABLE IF NOT EXISTS projects (
         id SERIAL PRIMARY KEY,
-        titulo VARCHAR(255) NOT NULL,
+        title VARCHAR(255) NOT NULL,
         link VARCHAR (255) NOT NULL,
-        imagem VARCHAR(255) NOT NULL
+        image VARCHAR(255) NOT NULL
        );
     `);
 
